@@ -16,5 +16,5 @@
 
         - name: Copy HTML file
       copy:
-        src: index.html
+        src:index.html
         dest:/var/WWW/html/index.html
