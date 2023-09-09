@@ -8,13 +8,14 @@
         update_cache: yes
       when: ansible_os_family == "Debian"
 
-    - name: Install node1
+    - name: Install Apache on Debian/Ubuntu
       apt:
         name: apache2
         state: present
       when: ansible_os_family == "Debian"
 
-        - name: Copy HTML file
+    - name: Copy HTML file
       copy:
-        src:index.html
-        dest:/var/WWW/html/index.html
+        src: index.html
+        dest: /var/WWW/html/index.html
+      when: ansible_os_family == "Debian"
