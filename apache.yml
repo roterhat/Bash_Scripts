@@ -1,14 +1,14 @@
 ---
 - name: Install Apache Server
-  hosts: node2  # Replace with the actual hostname or IP address of node2
-  become: yes   # Use this if you need elevated privileges (sudo)
+  hosts: node2
+  become: yes
   tasks:
     - name: Update package cache (for Debian/Ubuntu)
       apt:
         update_cache: yes
       when: ansible_os_family == "Debian"
 
-    - name: Install Apache on Debian/Ubuntu
+    - name: Install Apache
       apt:
         name: apache2
         state: present
@@ -17,5 +17,4 @@
     - name: Copy HTML file
       copy:
         src: index.html
-        dest: /var/WWW/html/index.html
-      when: ansible_os_family == "Debian"
+        dest: /var/www/html/index.html
